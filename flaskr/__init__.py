@@ -29,7 +29,7 @@ def create_app(test_config = None) :
         except : 
             return json.loads(json.dumps({"correlation" : "Fail"}))
 
-        return app 
+    return app 
         
 if __name__ == '__init__':
     app = create_app()
