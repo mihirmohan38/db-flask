@@ -33,6 +33,6 @@ flask_cors -> pip3 install flask-cors
 
 ## Spark Job
 
-tfidf data will be stored in hdfs file format in the location hdfs://localhost:9000/user/hadoop/output/
+##*tfidf*## data will be stored in hdfs file format in the location hdfs://localhost:9000/user/hadoop/output/
 
-Pearson correlation will be stored in /home/hadoop/corr.txt and will be sent back as json string response.
+##*Pearson correlation*## will be stored in /home/hadoop/corr.txt and will be sent back as json string response.
