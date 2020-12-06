@@ -2,12 +2,14 @@ hdfs dfs -rm -r /user/hadoop/count
 hdfs dfs -rm -r /user/hadoop/output
 hdfs dfs -rm -r /user/hadoop/meta
 
-sqoop import --connect jdbc:mysql://18.138.178.92/BookReview?useSSL=false --table count --username root --password password
-
 /opt/spark-3.0.1-bin-hadoop3.2/bin/spark-submit --master yarn \
                     --conf "spark.mongodb.input.uri=mongodb://18.140.138.164/test.metabooks?useSSL=false" \
                     --conf "spark.mongodb.output.uri=mongodb://18.140.138.164/test.metabooks" \
                     --packages org.mongodb.spark:mongo-spark-connector_2.12:3.0.0 \
 		            /home/hadoop/db-flask/spark/mongo.py
+                    
+sqoop import --connect jdbc:mysql://18.138.178.92/BookReview?useSSL=false --table count --username root --password password
+
+
 
 /opt/spark-3.0.1-bin-hadoop3.2/bin/spark-submit --master yarn /home/hadoop/db-flask/spark/sparkClass.py
