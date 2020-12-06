@@ -18,7 +18,8 @@ Serving on http://0.0.0.0:8041
 Note : Don't forget to open 8041 port in security group of the instance.
 
 
-End point : ip:8041/spark/
+## End point 
+<ip>:8041/spark/
 
 
 -> runs the pearson correlation and tfidf tasks.
