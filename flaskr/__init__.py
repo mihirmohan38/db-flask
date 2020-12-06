@@ -23,8 +23,10 @@ def create_app(test_config = None) :
     @app.route("/spark")
     def tfidf() : 
         try : 
-            # change to run-script in spark folder
-            system("/opt/spark-3.0.1-bin-hadoop3.2/bin/spark-submit --master yarn /home/hadoop/db-flask/spark/sparkClass.py")
+            path = "/home/hadoop/db-flask/spark/run-script"
+            system("chmod +x {}".format(path))
+            system(path)
+            #system("/opt/spark-3.0.1-bin-hadoop3.2/bin/spark-submit --master yarn /home/hadoop/db-flask/spark/sparkClass.py")
             f = open("/home/hadoop/corr.txt", "r")
             ans = f.readline().strip("\n") 
             f.close()
