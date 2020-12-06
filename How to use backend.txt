@@ -1,0 +1,122 @@
+# InfoSys1D-backend
+first git project to understand basics
+
+The file first of all only runs if its on a conda env for some reason so you will need s a conda env. 
+
+python files : 
+simplejson 
+waitress 
+
+
+To work with the app you will need the following commands:
+
+For Linux and Mac:
+
+export FLASK_APP=flaskr
+export FLASK_ENV=development
+flask run
+For Windows cmd, use set instead of export:
+
+set FLASK_APP=flaskr
+set FLASK_ENV=development
+flask run
+For Windows PowerShell, use $env: instead of export:
+
+$env:FLASK_APP = "flaskr"
+$env:FLASK_ENV = "development"
+flask run
+
+
+waitress-serve --call 'flaskr:create_app'    to run the app
+
+Serving on http://0.0.0.0:8080
+
+# Database format
+The database contains 3 tables viz. users, activities and registrations. 
+## Users 
+Username Password
+
+## Activities 
+Unq_id	Category 	date_created	date_activity	Creator 	Venue 	ppl	Image_uri	descrip	Max_ppl
+## Registered
+Username	Unq_id
+
+
+
+# How to use and endpoints
+
+## Authentication 
+/auth/login 
+To login. methods=('GET','POS')
+		input:
+		{"username":someString,
+		"password":someString}
+/auth/register 
+To register. methods = ('GET','POST')
+		input:
+		{"username":someString,
+		"password":someString}
+## creating and updating events 
+/create
+methods=('GET','POS')
+input: 
+{
+"title":someString,
+"date_activity":someDate,
+"people":someInt,
+"max_people":someInt,
+"imageURI":someImageURL,
+"location":someString,
+"category":someString,
+"details":someString
+}
+/update 
+methods=('GET','POS')
+{
+"title":someString,
+"date_activity":someDate,
+"people":someInt,
+"max_people":someInt,
+"imageURI":someImageURL,
+"location":someString,
+"category":someString,
+"details":someString
+}
+/<int:id>/delete
+methods = ('POST')
+
+
+## My Page
+
+all the requests for my page are get methods and have no request body 
+
+/myPage/username    all the activities the user has regiestered for  
+			returns a json : { username : [list of uinq id's registered for the user}
+
+/myPage/id          gets the activity with id = id  
+			return a json  : { "unq_id" : row[0], 
+            				   "category" : row[1],
+            				   "date_created" : str(row[2]),
+           				   "date_activity" : str(row[3]), 
+         				   "creator" : row[4],
+        				   "venue" : row[5] , 
+            				   "ppl" : row[6], 
+        				   "image_uri" : row[7],
+           				   "description" : row[8], 
+            				   "max_ppl" : row[9]}        // rows are just values
+
+## Home Page 
+
+
+all the requests for my page are get methods and have no request body 
+
+
+/home/                             all users -- just  a test end point, maynot be useful
+
+/home/actListTime                  all the activities sorted in the order of time created
+					return the a json array : [ {act 1}, {act 2}, ...]
+						the activities are json of the format similar to /myPage/id
+
+/home/actListCategories/category/  all the activities in a pariticular category in the order of time
+					return the a json array : [ {act 1}, {act 2}, ...]
+						the activities are json of the format similar to /myPage/id
