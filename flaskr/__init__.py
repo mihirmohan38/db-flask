@@ -1,5 +1,6 @@
 from os import system 
 from flask import Flask 
+from flask_cors import CORS
 import click
 import json
 
@@ -8,6 +9,7 @@ def create_app(test_config = None) :
     app.config.from_mapping(
         SECRET_KEY = "dev", 
         )
+    CORS(app)
 
     if test_config is None : 
         app.config.from_pyfile("config.py", silent = True )
