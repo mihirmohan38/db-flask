@@ -1,8 +1,7 @@
-import math
-from pyspark import SparkContext
+
 from pyspark.sql import SparkSession
 from os import system
-from sparkClass import rdd_model
+
 
 
 if __name__ == "__main__":
