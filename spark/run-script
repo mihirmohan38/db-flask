@@ -3,6 +3,7 @@ hdfs dfs -rm -r /user/hadoop/output
 hdfs dfs -rm -r /user/hadoop/meta
 
 sqoop import --connect jdbc:mysql://13.251.71.164/BookReview?useSSL=false --table count --username root --password password
+
 /opt/spark-3.0.1-bin-hadoop3.2/bin/spark-submit --master yarn \
                     --conf "spark.mongodb.input.uri=mongodb://46.137.200.42/test.metabooks?useSSL=false" \
                     --conf "spark.mongodb.output.uri=mongodb://46.137.200.42/test.metabooks" \
