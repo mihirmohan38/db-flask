@@ -22,10 +22,11 @@ def create_app(test_config = None) :
     def tfidf() : 
         try : 
             system("<command to run the files>")
-            f = open("/home/hadoop/answer.txt", "r")
+            f = open("/home/hadoop/corr.txt", "r")
             ans = f.readline().strip("\n") 
             f.close()
-            return json.loads(json.dumps({"correlation": ans }))
+            #return json.loads(json.dumps({"correlation": ans }))
+            return ans 
         except : 
             return json.loads(json.dumps({"correlation" : "Fail"}))
 
