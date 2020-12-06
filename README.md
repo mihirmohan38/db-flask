@@ -1,3 +1,17 @@
+
+# Downloading and running 
+
+git clone https://github.com/mihirmohan38/db-flask.git on set up.
+
+
+cd db-flask/
+
+
+waitress-serve --port=8041 --call "flaskr:create_app"
+
+
+
+
 # BB - Flask server for anlytics tasks.
 
 ## CLI - Command 
@@ -36,3 +50,5 @@ flask_cors -> pip3 install flask-cors
 ##*tfidf*## data will be stored in hdfs file format in the location hdfs://localhost:9000/user/hadoop/output/
 
 ##*Pearson correlation*## will be stored in /home/hadoop/corr.txt and will be sent back as json string response.
+
+
