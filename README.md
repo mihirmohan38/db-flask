@@ -27,3 +27,12 @@ waitress -> apt install python3-waitress
 flask -> apt install python3-flask 
 
 flask_cors -> pip3 install flask-cors
+
+
+# BB - Flask server for anlytics tasks.
+
+## Spark Job
+
+tfidf data will be stored in hdfs file format in the location hdfs://localhost:9000/user/hadoop/output/
+
+Pearson correlation will be stored in /home/hadoop/corr.txt and will be sent back as json string response.
