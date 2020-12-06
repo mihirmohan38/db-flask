@@ -5,10 +5,26 @@ The file first of all only runs if its on a conda env for some reason so you wil
 
 python files : 
 simplejson 
-waitress 
+waitress -> apt install python3-waitress
+flask -> apt install python3-flask 
+flask_cors -> pip3 install flask-cors
+
+
 
 
 To work with the app you will need the following commands:
+
+Production : 
+
+waitress-serve --port=8041 --call "flaskr:create_app"
+
+
+Serving on http://0.0.0.0:8041
+
+Note : Don't forget to open 8041 port in security group.
+
+
+Flask : 
 
 For Linux and Mac:
 
@@ -26,9 +42,5 @@ $env:FLASK_APP = "flaskr"
 $env:FLASK_ENV = "development"
 flask run
 
-
-waitress-serve --port=8041 --call "flaskr:create_app"
 waitress-serve --call "flaskr:create_app"    to run the app
 waitress-serve --call "main:create_app"
-
-Serving on http://0.0.0.0:8080
